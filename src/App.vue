@@ -1,8 +1,6 @@
 <template>
   <div
-    class="container-fluid min-vh-100 bg-dark"
-    style="background-image: url('bg-image.jpg')"
-  >
+    class="container-fluid min-vh-100 bg-dark">
     <login-main></login-main>
   </div>
 </template>
@@ -20,6 +18,7 @@ export default {
 <style>
 @import "bootstrap";
 .container-fluid {
+  background-image: url('bg-image.jpg')
   background-position: center;
   background-size: auto;
 }
