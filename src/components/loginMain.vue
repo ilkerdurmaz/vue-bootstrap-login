@@ -1,6 +1,6 @@
 <template>
-  <div class="row d-flex justify-content-center ">
-    <div class="col-12 col-md-6 col-lg-5 col-xl-4 col-xxl-3 pt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-sm-8 col-md-7 col-lg-5 col-xl-4 col-xxl-4 pt-5">
       <div class="card">
         <div class="card-header text-center p-3 pb-5">
           <h1 v-if="isCollapsed" class="card-title text-light">WELCOME</h1>
@@ -10,17 +10,22 @@
           <sign-in></sign-in>
         </div>
         <div class="card-footer text-center p-0">
-          <button class="btn" data-bs-toggle="collapse"
-                  @click="isCollapsed=!isCollapsed"
-                  data-bs-target="#collapseExample" style="margin-top: -2.5rem;position: relative">
-            <span v-if="!isCollapsed"><strong class="text-light">Sign-in</strong></span>
+          <button
+            class="btn"
+            data-bs-toggle="collapse"
+            @click="isCollapsed = !isCollapsed"
+            data-bs-target="#collapseExample"
+            style="margin-top: -2.5rem; position: relative"
+          >
+            <span v-if="!isCollapsed"
+              ><strong class="text-light">Sign-in</strong></span
+            >
             <span v-else><strong class="text-light">Sing-Up</strong></span>
           </button>
           <div class="collapse p-0" id="collapseExample">
             <sign-up></sign-up>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -44,17 +49,28 @@ export default {
 }
 </script>
 
-<style >
+<style>
 .card {
-  background: rgb(238, 174, 202);
-  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(18, 82, 157, 1) 100%);
+  background: transparent !important;
 }
-.btn{
-  background: rgb(6,154,231);
-  background: linear-gradient(90deg, rgba(6,154,231,1) 0%, rgba(35,204,236,1) 100%);
+.btn {
+  background: rgb(6, 154, 231);
+  background: linear-gradient(
+    90deg,
+    rgba(6, 154, 231, 1) 0%,
+    rgba(35, 204, 236, 1) 100%
+  );
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: lightgray!important;
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: lightgray !important;
   opacity: 1; /* Firefox */
+}
+.fa-shake {
+  --fa-animation-duration: 2s;
+  --fa-animation-iteration-count: 1;
+}
+.form-control {
+  background: transparent !important;
 }
 </style>
