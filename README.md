@@ -1,24 +1,2 @@
-# vue-bootstrap-login
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+A login page that was made with vue, bootstap and much love.
+https://im4.ezgif.com/tmp/ezgif-4-895757f81a.gif
