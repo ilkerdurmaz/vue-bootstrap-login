@@ -1,22 +1,25 @@
 <template>
-  <form class="pb-5 p-2">
+  <form class="p-5">
     <div class="input-group mb-3">
-      <span class="input-group-text"><i class="fa-solid fa-envelope fa-shake" style="--fa-animation-iteration-count: 2"></i></span>
-      <input type="email" class="form-control" placeholder="enter your e-mail"
+      <span class="input-group-text"><i class="fa-solid fa-envelope fa-shake"
+                                        style="--fa-animation-iteration-count: 1"></i></span>
+      <input type="email" class="form-control text-light" placeholder="enter your e-mail"
       >
     </div>
     <div class="input-group mb-3">
-      <span class="input-group-text"><i class="fa-solid fa-lock fa-shake" style="--fa-animation-iteration-count: 2"></i></span>
-      <input type="password" class="form-control" placeholder="enter your password"
+      <span class="input-group-text"><i class="fa-solid fa-lock fa-shake" style="--fa-animation-iteration-count: 1"></i></span>
+      <input type="password" class="form-control text-light" placeholder="enter your password"
       >
     </div>
     <div class="form-check mb-3">
       <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-      <label class="form-check-label" for="flexCheckIndeterminate">
+      <label class="form-check-label text-light" for="flexCheckIndeterminate">
         Remember Me
       </label>
     </div>
-    <button type="button" class="btn btn-primary w-100">LOGIN</button>
+    <div class="text-center">
+      <button type="button" class="btn w-100 text-light"><strong>Login</strong></button>
+    </div>
   </form>
 
 </template>
@@ -28,5 +31,7 @@ export default {
 </script>
 
 <style scoped>
-
+.form-control{
+  background: transparent!important;
+}
 </style>
