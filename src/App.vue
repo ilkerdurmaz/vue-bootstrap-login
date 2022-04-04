@@ -12,6 +12,11 @@ import loginMain from '@/components/loginMain'
 export default {
   components: {
     loginMain
+  },
+  data () {
+    return {
+      user: null
+    }
   }
 }
 </script>
