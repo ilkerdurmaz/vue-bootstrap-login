@@ -3,28 +3,44 @@
     <div class="col-12 col-sm-8 col-md-7 col-lg-5 col-xl-4 col-xxl-4">
       <div class="card" :style="{'background':bgColor}">
         <div class="card-header text-center p-3 pb-5">
-          <h1 v-if="isCollapsed" class="card-title text-light" :style="{'font-size':titleSize+'rem'}">{{loginTitle}}</h1>
+          <h1 v-if="isLogin" class="card-title text-light" :style="{'font-size':titleSize+'rem'}">{{loginTitle}}</h1>
           <h1 v-else class="card-title text-light" :style="{'font-size':titleSize+'rem'}">{{registerTitle}}</h1>
         </div>
         <div class="card-body collapse p-0 show" id="collapseExample">
-          <sign-in v-model="userInfo" :btn-color="btnColor"></sign-in>
+          <sign-in
+            v-model="userInfo"
+            :btn-color="btnColor"
+            :pass-length="passLength"
+            :is-correct="isCorrect"
+            :forgot-pass-link="forgotPassLink"
+            :login-message="loginMessage"
+            :is-on="isLogin"
+          ></sign-in>
         </div>
         <div class="card-footer text-center p-0">
           <button
             class="btn"
             :style="{'background':btnColor}"
             data-bs-toggle="collapse"
-            @click="isCollapsed = !isCollapsed"
+            @click="isLogin = !isLogin"
             data-bs-target="#collapseExample"
             style="margin-top: -2.5rem; position: relative"
           >
-            <span v-if="!isCollapsed"
+            <span v-if="isLogin"
               ><strong class="text-light">Sign-in</strong></span
             >
             <span v-else><strong class="text-light">Sing-Up</strong></span>
           </button>
           <div class="collapse p-0" id="collapseExample">
-            <sign-up v-model="userInfo" :btn-color="btnColor"></sign-up>
+            <sign-up
+              v-model="userInfo"
+              :btn-color="btnColor"
+              :pass-length="passLength"
+              :is-correct="isCorrect"
+              :terms-link="termsLink"
+              :register-message="registerMessage"
+              :is-on="!isLogin"
+            ></sign-up>
           </div>
         </div>
       </div>
@@ -61,25 +77,50 @@ export default {
     titleSize: {
       type: String,
       default: '4'
+    },
+    passLength: {
+      type: Number,
+      default: 6
+    },
+    forgotPassLink: {
+      type: String,
+      default: '#'
+    },
+    termsLink: {
+      type: String,
+      default: '#'
+    },
+    isCorrect: {
+      type: Boolean,
+      default: true
+    },
+    loginMessage: {
+      type: String,
+      default: 'Your login information is incorrect.'
+    },
+    registerMessage: {
+      type: String,
+      default: 'Your registration information is incorrect.'
     }
   },
   data () {
     return {
-      isCollapsed: true,
-      userInfo: {
-        email: '',
-        password: '',
-        submitType: '',
-        rememberMe: false
-      }
+      isLogin: true,
+      userInfo: {}
     }
   },
   watch: {
-    userInfo (val) {
-      this.$emit('update:modelValue', val)
+    userInfo: {
+      handler (newValue, oldValue) {
+        if (newValue !== oldValue) {
+          this.$emit('update:modelValue', newValue)
+        }
+      },
+      deep: true
     }
   }
 }
+
 </script>
 
 <style>

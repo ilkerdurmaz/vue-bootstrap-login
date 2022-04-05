@@ -1,26 +1,23 @@
 <template>
-  <form class="p-5">
+  <form class="p-5" @submit.prevent="signIn" >
     <div class="input-group mb-3">
-      <span class="input-group-text"
-      ><i class="fa-solid fa-envelope fa-shake"></i
-      ></span>
+      <span class="input-group-text"><i class="fa-solid fa-envelope" :class="{'fa-shake':shakeM}"></i></span>
       <input
-        type="email"
-        class="form-control text-light"
+        v-model="v.user.email.$model"
+        type="text"
+        class="form-control"
+        :class="{'is-invalid' : v.user.email.$error}"
         placeholder="enter your e-mail"
-        v-model="user.email"
-
       />
     </div>
     <div class="input-group mb-3">
-      <span class="input-group-text"
-      ><i class="fa-solid fa-lock fa-shake"></i
-      ></span>
+      <span class="input-group-text"><i class="fa-solid fa-lock" :class="{'fa-shake':shakeP}"></i></span>
       <input
+        v-model="v.user.password.$model"
         type="password"
         class="form-control text-light"
+        :class="{'is-invalid' : v.user.password.$error}"
         placeholder="enter your password"
-        v-model="user.password"
       />
     </div>
     <div class="form-check mb-3">
@@ -34,45 +31,89 @@
         Remember Me
       </label>
       <label class="float-end">
-        <a href="#" class="text-light">Forgot Password?</a>
+        <a :href="forgotPassLink" class="text-light">Forgot Password?</a>
       </label>
     </div>
     <div class="text-center">
-      <button type="button" class="btn btnColor w-100 text-light" @click.prevent="signIn" :style="{'background':btnColor}">
-        <strong>Login</strong>
+      <button
+        type="submit"
+        class="btn w-100 text-light"
+        @click="iconShake"
+        :style="{'background':isCorrect ? btnColor : 'red',}"
+        :disabled="!isCorrect"
+      >
+        <strong v-if="isCorrect">Login</strong>
+        <strong v-else>{{ loginMessage }}</strong>
       </button>
     </div>
   </form>
 </template>
 
 <script>
-export default {
+import { required, email, minLength } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 
-  props: {
-    btnColor: {
-      type: String,
-      default: 'linear-gradient(90deg,rgba(6, 154, 231, 1) 0%,rgba(35, 204, 236, 1) 100%)'
-    }
-  },
+export default {
+  setup: () => ({ v: useVuelidate() }),
+  props: ['btnColor', 'passLength', 'forgotPassLink', 'isCorrect', 'loginMessage', 'isOn'],
   name: 'signIn',
   data () {
     return {
       user: {
-        email: '',
-        password: '',
+        email: null,
+        password: null,
         submitType: 'login',
         rememberMe: false
+      },
+      shakeM: false,
+      shakeP: false
+    }
+  },
+  validations () {
+    return {
+      user: {
+        email: {
+          required,
+          email
+        },
+        password: {
+          required: {
+            ...required
+            // special error messages will be added here
+          },
+          minLength: minLength(this.passLength)
+        }
       }
     }
   },
   methods: {
     signIn () {
-      this.$emit('update:modelValue', this.user)
+      if (this.v.$invalid) {
+        this.$emit('update:modelValue', 'invalidLogin')
+        this.iconShake()
+      } else {
+        this.$emit('update:modelValue', this.user)
+      }
+    },
+    iconShake () {
+      this.shakeM = this.v.user.email.$error
+      this.shakeP = this.v.user.password.$error
+      setTimeout(() => {
+        this.shakeM = false
+        this.shakeP = false
+      }, 1000)
+    }
+  },
+  watch: {
+    isOn () {
+      this.v.$reset()
+      this.user = {
+        email: null,
+        password: null,
+        submitType: 'login',
+        rememberMe: false
+      }
     }
   }
-
 }
-
 </script>
-
-<style scoped></style>
