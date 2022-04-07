@@ -1,4 +1,4 @@
-#A login component that was made with vue, bootstrap,vuelidate and much love.
+# A login component that was made with vue, bootstrap,vuelidate and much love.
 
 <img src="https://user-images.githubusercontent.com/14932895/161431964-f8c09dea-5375-4ba3-b853-47b134085d23.gif">
 
@@ -17,5 +17,5 @@
 | registerMessage            | String  | error message displayed on the register button when isCorrect=false                       | Your registration information is incorrect |
 
 
-#It needs font awesome cdn for free icons, you will find up-to-date cdn here:
+# It needs font awesome cdn for free icons, you will find up-to-date cdn here:
 https://cdnjs.com/libraries/font-awesome
