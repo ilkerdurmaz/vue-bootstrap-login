@@ -1,14 +1,31 @@
 {
   "name": "vue-bootstrap-login",
-  "version": "0.1.0",
-  "private": true,
+  "author": "ilkerdurmaz | ilker.prime@gmail.com",
+  "version": "1.0.0",
+  "private": false,
+  "main": "./src/install.js",
+  "license": "MIT",
+  "description": "A simple login/register form component for Vue.js",
+  "keywords": [
+    "vue",
+    "login",
+    "vue login",
+    "register",
+    "sign up",
+    "sign in",
+    "component"
+  ],
+  "homepage": "https://github.com/ilkerdurmaz/vue-bootstrap-login",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilkerdurmaz/vue-bootstrap-login.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.4",
     "@vuelidate/core": "^2.0.0-alpha.40",
     "@vuelidate/validators": "^2.0.0-alpha.28",
     "bootstrap": "^5.1.3",
