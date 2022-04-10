@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid min-vh-100 bg-dark">
+  <div class="container-fluid min-vh-100 bg-dark pt-5">
     <login-main :is-correct="isCorrect" v-model="user"></login-main>
     <button class="btn btn-primary" @click="login">TEST</button>
   </div>
@@ -32,7 +32,6 @@ export default {
 </script>
 
 <style>
-@import "bootstrap";
 .container-fluid {
   background-image: url('assets/bg-image.jpg');
   background-position: center;

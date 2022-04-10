@@ -2,7 +2,7 @@
   <form class="p-5" @submit.prevent="signUp">
     <div class="input-group mb-3">
       <span class="input-group-text">
-        <i class="fa-solid fa-envelope" :class="{'fa-shake':shakeM}"></i>
+        <i class="bi bi-envelope-fill" :class="{shake:shakeM}"></i>
       </span>
       <input
         v-model="v.user.email.$model"
@@ -14,7 +14,7 @@
     </div>
     <div class="input-group mb-3">
       <span class="input-group-text">
-        <i class="fa-solid fa-lock" :class="{'fa-shake':shakeP}"></i>
+        <i class="bi bi-shield-lock-fill" :class="{shake:shakeP}"></i>
       </span>
       <input
         v-model="v.user.password.$model"
@@ -25,9 +25,9 @@
       />
     </div>
     <div class="input-group mb-3">
-      <span class="input-group-text"
-        ><i class="fa-solid fa-check-double" :class="{'fa-shake':shakeC}"></i
-      ></span>
+      <span class="input-group-text">
+        <i class="bi bi-shield-fill-check" :class="{shake:shakeC}"></i>
+      </span>
       <input
         v-model="v.user.cPassword.$model"
         type="password"

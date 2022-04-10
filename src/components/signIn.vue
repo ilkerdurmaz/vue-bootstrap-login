@@ -1,7 +1,9 @@
 <template>
   <form class="p-5" @submit.prevent="signIn" >
     <div class="input-group mb-3">
-      <span class="input-group-text"><i class="fa-solid fa-envelope" :class="{'fa-shake':shakeM}"></i></span>
+      <span class="input-group-text">
+        <i class="bi bi-envelope-fill" :class="{shake:shakeM}"></i>
+      </span>
       <input
         v-model="v.user.email.$model"
         type="text"
@@ -11,7 +13,7 @@
       />
     </div>
     <div class="input-group mb-3">
-      <span class="input-group-text"><i class="fa-solid fa-lock" :class="{'fa-shake':shakeP}"></i></span>
+      <span class="input-group-text"><i class="bi bi-shield-lock-fill" :class="{shake:shakeP}"></i></span>
       <input
         v-model="v.user.password.$model"
         type="password"
@@ -117,3 +119,7 @@ export default {
   }
 }
 </script>
+
+<style>
+
+</style>

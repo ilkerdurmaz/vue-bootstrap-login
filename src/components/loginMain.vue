@@ -51,6 +51,7 @@
 <script>
 import signIn from '@/components/signIn'
 import signUp from '@/components/signUp'
+import 'bootstrap'
 export default {
   name: 'loginMain',
   components: {
@@ -124,16 +125,32 @@ export default {
 </script>
 
 <style>
-
+@import "bootstrap";
+@import 'bootstrap-icons';
 ::placeholder {
   color: lightgray !important;
   opacity: 1;
 }
-.fa-shake {
-  --fa-animation-duration: 2s;
-  --fa-animation-iteration-count: 1;
-}
 .form-control {
   background: transparent !important;
+}
+@keyframes shake {
+  0% { transform: rotate(0deg) }
+  10% { transform: rotate(-10deg) }
+  20% { transform: rotate(10deg) }
+  30% { transform: rotate(-10deg) }
+  40% { transform: rotate(10deg) }
+  50% { transform: rotate(-10deg) }
+  60% { transform: rotate(10deg) }
+  70% { transform: rotate(-10deg) }
+  80% { transform: rotate(10deg) }
+  90% { transform: rotate(-10deg) }
+  100% { transform: rotate(0deg) }
+
+}
+
+.shake {
+  animation: shake 0.7s;
+  animation-iteration-count: 1;
 }
 </style>
