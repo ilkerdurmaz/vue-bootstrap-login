@@ -1,5 +1,5 @@
 <template>
-  <form class="p-5" @submit.prevent="signIn" >
+  <form class="p-5" @submit.prevent="signIn">
     <div class="input-group mb-3">
       <span class="input-group-text">
         <i class="bi bi-envelope-fill" :class="{shake:shakeM}"></i>
@@ -7,9 +7,10 @@
       <input
         v-model="v.user.email.$model"
         type="text"
-        class="form-control"
-        :class="{'is-invalid' : v.user.email.$error}"
+        class="form-control text-light"
+        :class="{'redShadow':v.user.email.$error}"
         placeholder="enter your e-mail"
+
       />
     </div>
     <div class="input-group mb-3">
@@ -18,7 +19,7 @@
         v-model="v.user.password.$model"
         type="password"
         class="form-control text-light"
-        :class="{'is-invalid' : v.user.password.$error}"
+        :class="{'redShadow':v.user.password.$error}"
         placeholder="enter your password"
       />
     </div>
@@ -39,7 +40,8 @@
     <div class="text-center">
       <button
         type="submit"
-        class="btn w-100 text-light"
+        class="btn w-100 border-0"
+        :class="{'text-light':!isDark,'text-dark':isDark}"
         @click="iconShake"
         :style="{'background':isCorrect ? btnColor : 'red',}"
         :disabled="!isCorrect"
@@ -57,7 +59,7 @@ import { useVuelidate } from '@vuelidate/core'
 
 export default {
   setup: () => ({ v: useVuelidate() }),
-  props: ['btnColor', 'passLength', 'forgotPassLink', 'isCorrect', 'loginMessage', 'isOn'],
+  props: ['btnColor', 'passLength', 'forgotPassLink', 'isCorrect', 'loginMessage', 'isOn', 'isDark'],
   name: 'signIn',
   data () {
     return {
@@ -119,7 +121,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

@@ -1,7 +1,10 @@
 <template>
-  <div class="container-fluid min-vh-100 bg-dark pt-5">
-    <login-main :is-correct="isCorrect" v-model="user"></login-main>
-    <button class="btn btn-primary" @click="login">TEST</button>
+  <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center p-0 m-0">
+        <login-main
+          :is-correct="isCorrect"
+          :bg-color="bgColor"
+          v-model="user"
+        ></login-main>
   </div>
 </template>
 
@@ -14,17 +17,18 @@ export default {
   data () {
     return {
       isCorrect: true,
-      user: null
+      user: null,
+      bgColor: 'transparent'
     }
   },
-  methods: {
-    login () {
+  watch: {
+    user () {
       console.log(this.user)
       if (this.user === 'invalidLogin' || this.user === 'invalidRegister') {
         this.isCorrect = false
         setTimeout(() => {
           this.isCorrect = true
-        }, 3000)
+        }, 1000)
       }
     }
   }
@@ -33,8 +37,6 @@ export default {
 
 <style>
 .container-fluid {
-  background-image: url('assets/bg-image.jpg');
-  background-position: center;
-  background-size: auto;
+  background: linear-gradient(312deg,rgba(33,212,253,1)0%,rgba(183,33,255,1)100%);
 }
 </style>

@@ -8,7 +8,7 @@
         v-model="v.user.email.$model"
         type="text"
         class="form-control"
-        :class="{'is-invalid' : v.user.email.$error}"
+        :class="{'redShadow':v.user.email.$error}"
         placeholder="enter your e-mail"
       />
     </div>
@@ -20,7 +20,7 @@
         v-model="v.user.password.$model"
         type="password"
         class="form-control text-light"
-        :class="{'is-invalid' : v.user.password.$error}"
+        :class="{'redShadow':v.user.password.$error}"
         placeholder="enter your password"
       />
     </div>
@@ -32,7 +32,7 @@
         v-model="v.user.cPassword.$model"
         type="password"
         class="form-control text-light"
-        :class="{'is-invalid' : v.user.cPassword.$error}"
+        :class="{'redShadow':v.user.cPassword.$error}"
         placeholder="confirm your password"
       />
     </div>
@@ -45,13 +45,14 @@
       />
       <label class="form-check-label text-light" for="termsAgreed">
         I agree to
-        <a :href="termsLink" class="link-warning">the terms and conditions</a>.
+        <a :href="termsLink" class="link-light">the terms and conditions</a>
       </label>
     </div>
     <div class="text-center">
       <button
         type="submit"
-        class="btn w-100 text-light"
+        class="btn w-100 border-0"
+        :class="{'text-light':!isDark,'text-dark':isDark}"
         @click="iconShake"
         :style="{'background':isCorrect ? btnColor : 'red',}"
         :disabled="!isCorrect"
@@ -69,7 +70,7 @@ import { useVuelidate } from '@vuelidate/core'
 export default {
   setup: () => ({ v: useVuelidate() }),
   name: 'signUp',
-  props: ['btnColor', 'passLength', 'termsLink', 'isCorrect', 'registerMessage', 'isOn'],
+  props: ['btnColor', 'passLength', 'termsLink', 'isCorrect', 'registerMessage', 'isOn', 'isDark'],
   data () {
     return {
       user: {
@@ -122,7 +123,6 @@ export default {
     signUp () {
       if (this.v.$invalid) {
         this.$emit('update:modelValue', 'invalidRegister')
-        console.log(this.v.user.cPassword.required.$message)
         this.iconShake()
       } else {
         this.$emit('update:modelValue', this.user)
