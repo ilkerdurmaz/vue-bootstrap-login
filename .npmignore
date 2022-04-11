@@ -1,0 +1,11 @@
+/package-lock.json
+
+
+# config files
+.browserslistrc
+.eslintrc.js
+.editorconfig
+babel.config.js
+jsconfig.json
+vue.config.js
+package-lock.json
