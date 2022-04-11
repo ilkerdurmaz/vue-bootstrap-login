@@ -42,19 +42,19 @@ and
 ### Props
 ``` html
    <myLoginComp 
-    v-model=""
-    btnColor=""
-    bgColor=""
-    isDark=""
-    loginTitle=""
-    registerTitle=""            
-    titleSize=""
-    passLength=""
-    forgotPassLink=""
-    termsLink=""            
-    isCorrect=""            
-    loginMessage=""
-    registerMessage=""/>
+    :v-model=""
+    :btnColor=""
+    :bgColor=""
+    :isDark=""
+    :loginTitle=""
+    :registerTitle=""            
+    :titleSize=""
+    :passLength=""
+    :forgotPassLink=""
+    :termsLink=""            
+    :isCorrect=""            
+    :loginMessage=""
+    :registerMessage=""/>
 ```
 | Prop                       | Type    | Description                                                                               | Default                                                                   |
 |----------------------------|---------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
