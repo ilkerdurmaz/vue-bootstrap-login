@@ -54,19 +54,21 @@ and
     loginMessage=""
     registerMessage=""/>
 ```
-| Prop                       | Type    | Value                                                                                     | Default                                    |
-|----------------------------|---------|-------------------------------------------------------------------------------------------|--------------------------------------------|
-| value/modelValue (v-model) | Object  | email/password/submitType(login/register)/rememberMe                                      | {}                                         |
-| btnColor                   | String  | css background color                                                                      | transparent                                |
-| loginTitle                 | String  | -                                                                                         | WELCOME                                    |
-| registerTitle              | String  | -                                                                                         | JOIN US!                                   |
-| titleSize                  | String  | css font size                                                                             | 4rem                                       |
-| passLength                 | Number  | minimum password size                                                                     | 6                                          |
-| forgotPassLink             | String  | forgot password link                                                                      | #                                          |
-| termsLink                  | String  | registration terms link                                                                   | #                                          |
-| isCorrect                  | Boolean | sign up / sign in form validation result, when is false login/register button is disabled | true                                       |
-| loginMessage               | String  | error message displayed on the login button when isCorrect=false                          | Your login information is incorrect        |
-| registerMessage            | String  | error message displayed on the register button when isCorrect=false                       | Your registration information is incorrect |
+| Prop                       | Type    | Description                                                                               | Default                                                                   |
+|----------------------------|---------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| value/modelValue (v-model) | Object  | email/password/submitType(login/register)/rememberMe                                      | {}                                                                        |
+| bgColor                    | String  | component background color                                                                | transparent                                                               |
+| btnColor                   | String  | buttons background color                                                                  | linear-gradient(90deg,rgba(6, 154, 231, 1) 0%,rgba(35, 204, 236, 1) 100%) |
+| loginTitle                 | String  | -                                                                                         | WELCOME                                                                   |
+| registerTitle              | String  | -                                                                                         | JOIN US!                                                                  |
+| titleSize                  | String  | css font size                                                                             | 4rem                                                                      |
+| passLength                 | Number  | minimum password size                                                                     | 6                                                                         |
+| forgotPassLink             | String  | forgot password link                                                                      | #                                                                         |
+| termsLink                  | String  | registration terms link                                                                   | #                                                                         |
+| isCorrect                  | Boolean | sign up / sign in form validation result, when is false login/register button is disabled | true                                                                      |
+| isDark                     | Boolean | Title and button texts color switch (dark/light)                                          | false                                                                     |
+| loginMessage               | String  | error message displayed on the login button when isCorrect=false                          | information is incorrect                                                  |
+| registerMessage            | String  | error message displayed on the register button when isCorrect=false                       | information is incorrect                                                  |
 
 ### Built With
 
