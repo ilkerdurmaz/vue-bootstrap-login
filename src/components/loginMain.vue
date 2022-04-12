@@ -56,8 +56,8 @@
 </template>
 
 <script>
-import signIn from '@/components/signIn'
-import signUp from '@/components/signUp'
+import signIn from './signIn'
+import signUp from './signUp'
 import 'bootstrap'
 export default {
   name: 'loginMain',
@@ -72,7 +72,7 @@ export default {
     },
     btnColor: {
       type: String,
-      default: 'linear-gradient(90deg,rgba(6, 154, 231, 1) 0%,rgba(35, 204, 236, 1) 100%)'
+      default: 'linear-gradient(90deg,#069ae7 0%,#23ccec 100%)'
     },
     isDark: {
       type: Boolean,
