@@ -1,9 +1,11 @@
 # A login/register component for the web apps.
 
-### Sign-In / Sign-Up Transition
-https://user-images.githubusercontent.com/14932895/162789597-a9e850f8-9867-44d6-88b2-236b0049ca63.mp4
-### Validation and Error Message
-https://user-images.githubusercontent.com/14932895/162789715-1e96c29f-2087-421c-a371-b39c2c04c075.mp4
+### Sign-Up / Sign-In Transition
+![1](https://user-images.githubusercontent.com/14932895/162794507-9556211c-3cd6-494c-a322-44e5eb5dc06c.gif)
+### Validation and Error
+![2](https://user-images.githubusercontent.com/14932895/162794528-254ad16e-fb64-4fdc-8de3-d8f10cfc7445.gif)
+
+## [DEMO](https://ilkerdurmaz.github.io/vue-bootstrap-login/)
 
 ## Using the component:
 
@@ -42,17 +44,19 @@ and
 ### Props
 ``` html
    <myLoginComp 
-    v-model=""
-    btn-color=""
-    loginTitle=""
-    registerTitle=""            
-    titleSize=""
-    passLength=""
-    forgotPassLink=""
-    termsLink=""            
-    isCorrect=""            
-    loginMessage=""
-    registerMessage=""/>
+    :v-model=""
+    :btnColor=""
+    :bgColor=""
+    :isDark=""
+    :loginTitle=""
+    :registerTitle=""            
+    :titleSize=""
+    :passLength=""
+    :forgotPassLink=""
+    :termsLink=""            
+    :isCorrect=""            
+    :loginMessage=""
+    :registerMessage=""/>
 ```
 | Prop                       | Type    | Description                                                                               | Default                                                                   |
 |----------------------------|---------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
@@ -71,7 +75,6 @@ and
 | registerMessage            | String  | error message displayed on the register button when isCorrect=false                       | information is incorrect                                                  |
 
 ### Built With
-
 
 * [Vue.js](https://vuejs.org/)
 * [Bootstrap, Bootstrap Icons](https://getbootstrap.com)
