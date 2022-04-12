@@ -265,8 +265,8 @@ export default {
       isCorrect: false,
       isDark: false,
       passLength: 6,
-      termsLink: 'https://www.linkedin.com/in/ilker-durmaz/',
-      forgotPassLink: 'https://github.com/ilkerdurmaz'
+      termsLink: 'https://www.google.com',
+      forgotPassLink: 'https://www.google.com'
     }
   },
   methods: {
