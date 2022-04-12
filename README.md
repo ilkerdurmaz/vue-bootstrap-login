@@ -1,5 +1,5 @@
 # A login/register component for the web apps.
-# A login/register component for the web apps.
+
 ### Sign-In / Sign-Up Transition
 https://user-images.githubusercontent.com/14932895/162789597-a9e850f8-9867-44d6-88b2-236b0049ca63.mp4
 ### Validation and Error Message
